@@ -1,0 +1,116 @@
+@media (min-width: 767px) and (max-width: 1025px) {
+  .title {
+    font-size: 46px;
+  }
+  .title-div p {
+    font-size: 20px;
+  }  
+  .logo {
+    height: 200px;
+  }
+  .header div {
+    font-size: 16px;
+  }
+  .button-primary {
+    padding: 16px 24px;
+    font-size: 16px;
+  }
+  .map-holder {
+    grid-template-columns: 1fr;
+  }
+  .womens-hair  {
+    font-size: 32px;
+  }
+  .category {
+    font-size: 20px;
+  }
+  .sub-category-title {
+    font-size: 32px;
+  }
+  .give-your-data div {
+    font-size: 32px;
+  }
+}
+@media (min-width: 0px) and (max-width: 766px) {
+  .title {
+    font-size: 32px;
+  }
+  .title-div p {
+    font-size: 0px;
+  }  
+  .logo {
+    height: 90px;
+  }
+  .header div {
+    font-size: 10px;
+  }
+  .button-primary {
+    padding: 12px 16px;
+    font-size: 12px;
+  }
+  .map-holder {
+    grid-template-columns: 1fr;
+  }
+  .price-table {
+    grid-template-columns: 1fr;
+    padding: 2px;
+    top: 50px;
+  }
+  .price-title {
+    font-size: 20px;
+  }
+  .womens-hair  {
+    font-size: 16px;
+    margin-top: 0px;
+  }
+  .category {
+    font-size: 10px;
+    margin-left: 10px;
+    margin-top: 5px;
+  }
+  .sub-category-title {
+    font-size: 16px;
+  }
+  .give-your-data div {
+    font-size: 32px;
+  }
+  .map-location {
+    font-size: 12px;
+  }
+  .marker-icon {
+    height: 40px;
+  }
+  .map-holder {
+    margin-top: 0px;
+    margin-bottom: 10px;
+  }
+  .main-image-holder {
+    margin-bottom: 10px;
+  }
+  .map-title {
+    margin: 5px ;
+  }
+  .price-div {
+    height: 850px;
+  }
+  .mens-hair {
+    font-size: 16px;
+  }
+  .services-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+  .appointment-choose-time {
+    grid-template-columns: 1fr;
+  }
+  .finalize-appointment-grid {
+    grid-template-columns: 1fr;
+    row-gap: 20px;
+  }
+  .service-option {
+    font-size: 14px;
+    padding: 5px 10px;
+  }
+  .div-gallery-image-holder {
+    grid-template-columns: 1fr 1fr;
+  }
+}

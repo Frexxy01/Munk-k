@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="./styles/mainpage.css" rel="stylesheet">
+    <link href="./styles/buttons.css" rel="stylesheet">
+    <link href="./styles/pricetable.css" rel="stylesheet">
+    <link href="./styles/maps.css" rel="stylesheet"> 
+    <link href="./styles/bookAppoinment.css" rel="stylesheet">
+    <link href="./styles/mainpage-galery.css">
+    <link href="./styles/media.css" rel="stylesheet">
+    
+    <!--SRCIPTEK KEZDETE-->
+
+    <script src="./scripts/googleMapsApi.js"></script>
+    <script src="./scripts/appointmentSlider.js"></script>
+    <script src="./scripts/buttonBehaviour.js"></script>
+    <!--SCRIPTEK VÉGE-->
+  </head>
+  <body>
+    <main>
+      <!--HOMEPAGE KEZDETE-->
+      <div class="main-image-holder">
+        <img class="logo" src="./images/logo 2.jpg">
+        <img class="main-image" src="./images/background picture (1) (1) web.webp">
+          <div class="header">
+            <div>
+              <a class="white-ancor" href="#price-div">Árak</a>
+            </div>
+            <div>
+              <a class="white-ancor"  href="#gallery-main">Galéria</a>
+            </div>
+            <div>
+              <a class="white-ancor" href="#map-holder">Elérhetőségek</a>
+            </div>
+            <div>
+              <a class="white-ancor"  href="#appointment-main">
+                Foglalj Időpontot
+              </a>
+            </div>
+          </div>
+          <div class="title-div">
+            <p>
+              <span class="title">Frizurák, amik beszélnek</span>
+            </p>
+            <p>
+              <span class="subtitle">Stílus ami kiemel. Szakértelem ami megbabonáz</span>
+            </p>
+            <div class="main-button-div">
+              <button class="button-primary" onclick="scrollToElement('appointment-main')">Foglalj időpontot</button>
+            </div>
+        </div>
+      </div>
+      <!--HOMEPAGE VÉGE-->
+
+      <!--MAPS KEZDETE-->
+      <div id="map-holder" class="map-holder">
+        <div class="map-title">
+          <div class="contact-element">
+            <img class="marker-icon" src="./icons/noun-marker-7182747.svg">
+            <p class="map-location">
+              6065 Lakitelek Jókai utca XX
+            </p>
+          </div>
+          <div class="contact-element">
+            <img class="marker-icon" src="./icons/noun-clock-7163183.svg">
+            <p class="map-location">
+              H-P: 8:00-16:00 SZ:8:00-12:00
+            </p>
+          </div>
+          <div class="contact-element">
+            <img class="marker-icon" src="./icons/noun-phone-7165367.svg">
+            <p class="map-location">
+              +36 01 1234567
+            </p>
+          </div>
+          <a href="https://www.facebook.com/profile.php?id=61564356737536&locale=hu_HU">
+            <div id="Facebook" class="contact-element facebook">
+              <img class="marker-icon " src="./icons/noun-facebook-6719933.svg">
+              <p class="map-location">
+                Facebook
+              </p>
+            </div>
+          </a>
+          <div class="contact-element instagram">
+            <img class="marker-icon" src="./icons/noun-instagram-7139236.svg">
+            <p class="map-location">
+              Instagram
+            </p>
+          </div>
+        </div>
+        
+        <div class="map-grid">
+          <div id="map"></div>
+          <div class="map-image-holder">
+            <img class="map-image" src="./images/Salonlocation.webp">
+          </div>
+        </div>
+      </div>
+      <!--MAPS VÉGE-->
+
+      <!--Időpontfoglaló form kezdete-->
+        <div id="appointment-main" class="appointment-main">
+          <div class="appointment-title">
+            Foglalj Időpontot Ma
+          </div>
+          <div class="appointment-slider">
+            <div class="slide appointment-service-slide">
+
+              <div class="appointment-choose-service">
+                <p>Válassz szolgáltatást:</p>
+              </div>
+              <div class="services-grid">
+                <button class="service-option">Férfi hajvágás (rövid)</button>
+                <button class="service-option">Férfi hajvágás (rövid)</button>
+                <button class="service-option">Férfi hajvágás (rövid)</button>
+                <button class="service-option">Férfi hajvágás (rövid)</button>
+                <button class="service-option">Férfi hajvágás (rövid)</button>
+                <button class="service-option">Férfi hajvágás (rövid)</button>
+                <button class="service-option">Férfi hajvágás (rövid)</button>
+                <button class="service-option">Férfi hajvágás (rövid)</button>
+                <button class="service-option">Férfi hajvágás (rövid)</button>
+              </div>
+            </div>
+            <div class="slide">
+              <div class="appointment-choose-time">
+                <div class="date-selector">
+                  <input type="date" class="dateinput">
+                </div>
+                <div class="time-selector">
+                  <div class="avaiable-dates">
+                    <div class="available-dates-title">Elérhető időpontok ezen a dátumon:</div>
+                    <div class="available-dates-grid">
+                      <button class="date-option">8:00</button>
+                      <button class="date-option">9:00</button>
+                      <button class="date-option">10:00</button>
+                      <button class="date-option">11:00</button>
+                      <button class="date-option">12:00</button>
+                      <button class="date-option">13:00</button>
+                      <button class="date-option">14:00</button>
+                      <button class="date-option">15:00</button>
+                      <button class="date-option">16:00</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="slide">
+              <div class="finalize-appointment-grid">
+                <div class="give-your-data">
+                  <div>A foglalás befejezéséhez add meg adataid!</div>
+                  <button>Foglald le az időpontot!</button>
+                </div>
+                <div class="input-holder">
+                  <div>
+                    Név:
+                    <input type="text" required placeholder="pl: Kis Pista">
+                  </div>
+                  <div>
+                    Telefonszám:
+                    <input type="tel" pattern="[0-9]{9}" required placeholder="06 20 123 4567">
+                  </div>
+                  <div>
+                    Email cím:
+                    <input type="email" required placeholder="valami@valami.hu">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="appointment-navigation-holder">
+            <a class="prev">&#10094;</a>
+            <a class="next">&#10095;</a>
+          </div>
+        </div>
+      <!--Időpont foglaló form vége-->
+
+      <!--GALÉRIA KEZDETE-->
+      <div id="gallery-main" class="gallery-main">
+        <div class="gallery-title">Galéria</div>
+        <div class="gallery-subtitle">Nem biztos a döntésben?</div>
+        <div class="gallery-image-holder">
+          <div>
+            <img src="./images/hajak/haj1.webp">
+          </div>
+          <div>
+            <img src="./images/hajak/haj2.webp">
+          </div>
+          <div>
+            <img src="./images/hajak/haj3.webp">
+          </div>
+          <div>
+            <img src="./images/hajak/haj4.webp">
+          </div>
+        </div>
+      </div>
+      <!--GALÉRIA VÉGE-->
+
+      <!--ÁRLISTA KEZDETE-->
+        <div id="price-div" class="price-div">
+          <img class="background-image" src="./images/background for the pricetable (1).jpg">
+
+          <div class="price-title">Árlista:</div>
+          <div class="price-table">
+            <div class="womens-hair">Nőknek:
+
+              <div class="category">
+                <div>Mosás Szárítás Vágás</div>
+                <div class="sub-category">
+                  <div>Rövid</div>
+                  <div>1500.-</div>
+                </div>
+                <div class="sub-category">
+                  <div>Közepes</div>
+                  <div>1500.-</div>
+                </div>
+                <div class="sub-category">
+                  <div>Hosszú</div>
+                  <div>1500.-</div>
+                </div>
+              </div>
+              <div class="category">
+                <div>Tő festés Szárítás Vágás</div>
+                <div class="sub-category">
+                  <div>Rövid</div>
+                  <div>1500.-</div>
+                </div>
+                <div class="sub-category">
+                  <div>Közepes</div>
+                  <div>1500.-</div>
+                </div>
+                <div class="sub-category">
+                  <div>Hosszú</div>
+                  <div>1500.-</div>
+                </div>
+              </div>
+              <div class="category">
+                <div>Melír (pisztoly) Szárítás Vágás</div>
+                <div class="sub-category">
+                  <div>Rövid</div>
+                  <div>1500.-</div>
+                </div>
+                <div class="sub-category">
+                  <div>Közepes</div>
+                  <div>1500.-</div>
+                </div>
+                <div class="sub-category">
+                  <div>Hosszú</div>
+                  <div>1500.-</div>
+                </div>
+              </div>
+              <div class="category">
+                <div>Dauer Szárítás Vágás</div>
+                <div class="sub-category">
+                  <div>Rövid</div>
+                  <div>1500.-</div>
+                </div>
+                <div class="sub-category">
+                  <div>Közepes</div>
+                  <div>1500.-</div>
+                </div>
+                <div class="sub-category">
+                  <div>Hosszú</div>
+                  <div>1500.-</div>
+                </div>
+              </div>
+              <div class="category">
+                <div>Alkalmi konty</div>
+                <div class="sub-category">
+                  <div>Rövid</div>
+                  <div>1500.-</div>
+                </div>
+                <div class="sub-category">
+                  <div>Közepes</div>
+                  <div>1500.-</div>
+                </div>
+                <div class="sub-category">
+                  <div>Hosszú</div>
+                  <div>1500.-</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="mens-hair">Férfiaknak:
+              <div class="category">
+                <div>Vágás</div>
+                <div class="sub-category">
+                  <div>Rövid</div>
+                  <div>1500.-</div>
+                </div>
+                <div class="sub-category">
+                  <div>Közepes</div>
+                  <div>1500.-</div>
+                </div>
+                <div class="sub-category">
+                  <div>Hosszú</div>
+                  <div>1500.-</div>
+                </div>
+              </div>
+                <div class="category">
+                  <div class="sub-category-title">Gyermek (fiú)</div>
+                  <div class="sub-category">
+                    <div>Rövid</div>
+                    <div>1500.-</div>
+                  </div>
+                  <div class="sub-category">
+                    <div>Közepes</div>
+                    <div>1500.-</div>
+                  </div>
+                  <div class="sub-category">
+                    <div>Hosszú</div>
+                    <div>1500.-</div>
+                  </div>
+                </div>
+                <div class="category">
+                  <div class="sub-category-title">Gyermek (lány)</div>
+                  <div class="sub-category">
+                    <div>Rövid</div>
+                    <div>1500.-</div>
+                  </div>
+                  <div class="sub-category">
+                    <div>Közepes</div>
+                    <div>1500.-</div>
+                  </div>
+                  <div class="sub-category">
+                    <div>Hosszú</div>
+                    <div>1500.-</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>  
+      <!--ÁRKATEGÓRIA VÉGE-->
+
+      <!--FOOTER KEZDETE-->
+      <footer class="footer">
+        <div>
+        &#169; Butterfly Hajszalon Minden jog fenttartva.
+        <div>
+      </footer>
+      <!--FOOTER VÉGE-->
+
+    </main>  
+  </body>
+</html>

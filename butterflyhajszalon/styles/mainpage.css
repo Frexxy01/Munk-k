@@ -1,0 +1,136 @@
+body {
+  margin: 0px;
+  padding: 0px;
+  font-family: Arial;
+  background-color: rgb(246, 246, 229);
+}
+html {
+  scroll-behavior: smooth;
+}
+main {
+  max-width: 1440px;
+  margin-left: auto;
+  margin-right: auto;
+}
+a {
+  color: black;
+  text-decoration: none;
+}
+.main-image-holder {
+  width: 100%;
+  display: flex;
+  position: relative;
+  border-bottom: 4px brown solid;
+  margin-bottom: 50px;
+}
+.main-image {
+  width: 100%;
+}
+.title-div {
+  position: absolute;
+  bottom: 20%;
+  left: 8%;
+  background-color: transparent;
+  height: 60%;
+  width: 40%;
+  z-index: 100;
+}
+.title-div p {
+  color: #3b2f2f;
+  font-size: 32px;
+  font-weight: bold;
+}
+.title {
+  font-size: 72px;
+}
+.subtitle {
+  color: #fff8e7;
+}
+.header {
+  position: absolute;
+  left: 0px;
+  right: 0px;
+  height: 40px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 30%;
+  justify-content:  start;
+}
+.header div {
+  background-color: transparent;
+  margin-right: 20px;
+  margin-left: 5%;
+  justify-content: center;
+  text-align: center;
+  padding-top: 10px;
+  font-size: 24px;
+  color: white;
+  font-weight: bold;
+  max-width: 250px;
+  transition: background-color, 0.3s;
+}
+.white-ancor {
+  color: white;
+}
+.header div :hover {
+  background-color: rgba(0, 0, 0, 0.4);
+  cursor: pointer;
+}
+.logo {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  height: 300px;
+  border-radius: 150px;
+}
+.footer {
+  width: 100%;
+  background-color: lightgray;
+  text-align: center;
+  height: 200px;
+  position: relative;
+}
+.footer div {
+  position: absolute;
+  width: 100%;
+  text-align: center;
+  top: 100px;
+}
+.gallery-main {
+  margin-left: auto;
+  margin-right: auto;
+  width: 80%;
+  margin-bottom: 100px;
+  
+}
+.gallery-title {
+  text-align: center;
+  font-size: 48px;
+  font-weight: bold;
+  color: #3b2f2f;
+}
+.gallery-subtitle {
+  text-align: center;
+  font-size: 32px;
+  color: #3b2f2f;
+  font-weight: bold;
+}
+.gallery-image-holder {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  column-gap: 15px;
+}
+.gallery-image-holder div {
+  background-color: lightcoral;
+  aspect-ratio: 1 / 1;
+  max-width: 300px;
+  overflow: hidden;
+}
+.gallery-image-holder div img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.gallery-image-holder div img:hover {
+  cursor: pointer;
+}
+

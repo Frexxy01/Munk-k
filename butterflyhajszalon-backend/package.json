@@ -1,0 +1,24 @@
+{
+  "name": "butterflyhajszalon-backend",
+  "version": "1.0.0",
+  "description": "butterfly hajszalon hatso szervere",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Frexxy01/butterflyhajszalon.git"
+  },
+  "author": "Örkényi István",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Frexxy01/butterflyhajszalon/issues"
+  },
+  "homepage": "https://github.com/Frexxy01/butterflyhajszalon#readme",
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "nodemon": "^3.1.6"
+  }
+}

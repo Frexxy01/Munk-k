@@ -1,0 +1,18 @@
+# macOS system files
+.DS_Store
+
+# Butterfly Hair Salon frontend
+butterflyhajszalon/images/
+butterflyhajszalon/icons/
+butterflyhajszalon/scripts/googleMapsApi.js
+
+# Butterfly Hair Salon backend
+butterflyhajszalon-backend/node_modules/
+butterflyhajszalon-backend/logs/
+butterflyhajszalon-backend/*.log
+butterflyhajszalon-backend/npm-debug.log*
+butterflyhajszalon-backend/.env
+butterflyhajszalon-backend/.DS_Store
+butterflyhajszalon-backend/dist/
+butterflyhajszalon-backend/build/
+

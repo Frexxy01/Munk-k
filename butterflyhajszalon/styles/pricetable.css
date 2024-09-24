@@ -1,0 +1,58 @@
+.price-div {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  border-radius: 10px;
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+  box-shadow: 10px 10px 5px rgba(0, 0, 0, 0.4);
+}
+.price-table {
+  padding: 20px;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  position: absolute;
+  top: 50px;
+}
+.price-title {
+  width: 100%;
+  position: absolute;
+  top: 20px;
+  text-align: center;
+  font-size: 48px;
+  color: #fff8e7;
+  font-weight: bold;
+}
+.womens-hair, .mens-hair  {
+  color: #fff8e7;
+  margin-top: 24px;
+  font-size: 40px;
+  font-weight: bold;
+}
+.category {
+  font-size: 24px;
+  margin-left: 40px;
+  color: white;
+  margin-top: 20px;
+}
+.sub-category {
+  display: grid;
+  grid-template-columns: 100px 100px;
+  justify-content: space-between;
+  font-weight: 20px;
+  margin: 10px;
+}
+.sub-category-title {
+  font-size: 40px;
+  color: #fff8e7;
+}
+.price-table-holder {
+  position: relative;
+}
+.background-image {
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
+}
