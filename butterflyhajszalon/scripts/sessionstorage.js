@@ -25,6 +25,7 @@ document.addEventListener('DOMContentLoaded', () => {
   })
 
   document.querySelector('.js-finalize-appointment').addEventListener('click', () => {
+  
     const name = document.querySelector(".js-nameinput")
     const telephone = document.querySelector(".js-telinput")
     const email = document.querySelector(".js-emailinput")
@@ -33,8 +34,11 @@ document.addEventListener('DOMContentLoaded', () => {
     sessionStorage.setItem('user_tel', telephone.value)
     sessionStorage.setItem('user_email', email.value)
 
-    checkSessionStorage()
+    const isStorageValid = checkSessionStorage()
     
+    if (isStorageValid) {
+      pushData()
+    }
   })
 })
 
@@ -49,10 +53,17 @@ function checkSessionStorage() {
     else {
       alert("Minden mező kitöltése kötelező");
       allFieldsFilled = false;
-      break;
+      return false
     }
   } 
   if (allFieldsFilled) {
-    alert("Siker!")
+    let warning = document.querySelector(".invisible")
+    warning.classList.add("visible-warning")
+    return true
   }
 }
+
+function pushData() {
+  fetch
+}
+

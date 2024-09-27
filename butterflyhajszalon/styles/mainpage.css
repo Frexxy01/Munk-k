@@ -134,3 +134,12 @@ a {
   cursor: pointer;
 }
 
+.invisible {
+  display: none;
+}
+.visible-warning {
+  display: block;
+  color: red;
+  font-weight: bold;
+  font-size: 24px;
+}
