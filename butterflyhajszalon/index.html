@@ -16,6 +16,7 @@
     <script src="./scripts/googleMapsApi.js"></script>
     <script src="./scripts/appointmentSlider.js"></script>
     <script src="./scripts/buttonBehaviour.js"></script>
+    <script src="./scripts/sessionstorage.js"></script>
     <!--SCRIPTEK VÉGE-->
   </head>
   <body>
@@ -112,35 +113,35 @@
                 <p>Válassz szolgáltatást:</p>
               </div>
               <div class="services-grid">
-                <button class="service-option">Férfi hajvágás (rövid)</button>
-                <button class="service-option">Férfi hajvágás (rövid)</button>
-                <button class="service-option">Férfi hajvágás (rövid)</button>
-                <button class="service-option">Férfi hajvágás (rövid)</button>
-                <button class="service-option">Férfi hajvágás (rövid)</button>
-                <button class="service-option">Férfi hajvágás (rövid)</button>
-                <button class="service-option">Férfi hajvágás (rövid)</button>
-                <button class="service-option">Férfi hajvágás (rövid)</button>
-                <button class="service-option">Férfi hajvágás (rövid)</button>
+                <button class="service-option js-movebutton js-pushdata-service">Férfi hajvágás (rövid)</button>
+                <button class="service-option js-movebutton js-pushdata-service">Férfi hajvágás (rövid)</button>
+                <button class="service-option js-movebutton js-pushdata-service">Férfi hajvágás (rövid)</button>
+                <button class="service-option js-movebutton js-pushdata-service">Férfi hajvágás (rövid)</button>
+                <button class="service-option js-movebutton js-pushdata-service">Férfi hajvágás (rövid)</button>
+                <button class="service-option js-movebutton js-pushdata-service">Férfi hajvágás (rövid)</button>
+                <button class="service-option js-movebutton js-pushdata-service">Férfi hajvágás (rövid)</button>
+                <button class="service-option js-movebutton js-pushdata-service">Férfi hajvágás (rövid)</button>
+                <button class="service-option js-movebutton js-pushdata-service">Férfi hajvágás (rövid)</button>
               </div>
             </div>
             <div class="slide">
               <div class="appointment-choose-time">
                 <div class="date-selector">
-                  <input type="date" class="dateinput">
+                  <input type="date" class="dateinput js-dateinput">
                 </div>
                 <div class="time-selector">
                   <div class="avaiable-dates">
                     <div class="available-dates-title">Elérhető időpontok ezen a dátumon:</div>
                     <div class="available-dates-grid">
-                      <button class="date-option">8:00</button>
-                      <button class="date-option">9:00</button>
-                      <button class="date-option">10:00</button>
-                      <button class="date-option">11:00</button>
-                      <button class="date-option">12:00</button>
-                      <button class="date-option">13:00</button>
-                      <button class="date-option">14:00</button>
-                      <button class="date-option">15:00</button>
-                      <button class="date-option">16:00</button>
+                      <button class="date-option js-movebutton js-pushdata-hour">8:00</button>
+                      <button class="date-option js-movebutton js-pushdata-hour">9:00</button>
+                      <button class="date-option js-movebutton js-pushdata-hour">10:00</button>
+                      <button class="date-option js-movebutton js-pushdata-hour">11:00</button>
+                      <button class="date-option js-movebutton js-pushdata-hour">12:00</button>
+                      <button class="date-option js-movebutton js-pushdata-hour">13:00</button>
+                      <button class="date-option js-movebutton js-pushdata-hour">14:00</button>
+                      <button class="date-option js-movebutton js-pushdata-hour">15:00</button>
+                      <button class="date-option js-movebutton js-pushdata-hour">16:00</button>
                     </div>
                   </div>
                 </div>
@@ -150,20 +151,20 @@
               <div class="finalize-appointment-grid">
                 <div class="give-your-data">
                   <div>A foglalás befejezéséhez add meg adataid!</div>
-                  <button>Foglald le az időpontot!</button>
+                  <button class="js-finalize-appointment">Foglald le az időpontot!</button>
                 </div>
                 <div class="input-holder">
                   <div>
                     Név:
-                    <input type="text" required placeholder="pl: Kis Pista">
+                    <input type="text" required placeholder="pl: Kis Pista" class="js-nameinput">
                   </div>
                   <div>
                     Telefonszám:
-                    <input type="tel" pattern="[0-9]{9}" required placeholder="06 20 123 4567">
+                    <input type="tel" pattern="[0-9]{9}" required placeholder="06 20 123 4567" class="js-telinput">
                   </div>
                   <div>
                     Email cím:
-                    <input type="email" required placeholder="valami@valami.hu">
+                    <input type="email" required placeholder="valami@valami.hu" class="js-emailinput">
                   </div>
                 </div>
               </div>

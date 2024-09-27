@@ -7,6 +7,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
   document.querySelector(".prev").addEventListener('click', () => {changeSlide(-1)})
   document.querySelector(".next").addEventListener('click', () => {changeSlide(1)})
+
+  document.querySelectorAll(".js-movebutton").forEach((button) => {
+    button.addEventListener('click', () => {
+      changeSlide(1);
+    })
+  })
 })
 
 
@@ -29,3 +35,4 @@ function showSlides(n) {
   } 
   slides[slideIndex-1].style.display = "block"
 }
+
