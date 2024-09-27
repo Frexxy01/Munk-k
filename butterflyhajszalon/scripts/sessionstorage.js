@@ -37,6 +37,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const isStorageValid = checkSessionStorage()
     
     if (isStorageValid) {
+      console.log("Starting request...")
       pushData()
     }
   })

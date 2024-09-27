@@ -4,6 +4,7 @@ const getReq = require("./methods/getRequest.js")
 const putReq = require("./methods/putRequest.js")
 const postReq = require("./methods/postRequest.js")
 const deleteReq = require("./methods/deleteRequest.js")
+const connectDB = require("./config/dbConnection.js")
 
 dotenv.config()
 const PORT = process.env.PORT || 5001;
@@ -36,3 +37,4 @@ const server = http.createServer((req, res) => {
 server.listen(PORT, () => {
   console.log(`Server is running of port ${PORT}`)
 })
+connectDB();
