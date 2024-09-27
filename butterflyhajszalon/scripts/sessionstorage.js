@@ -4,12 +4,12 @@ document.addEventListener('DOMContentLoaded', () => {
   sessionStorage.setItem('user_tel', null);
   sessionStorage.setItem('user_datestring', null);
   sessionStorage.setItem('user_hour', null)
-  sessionStorage.setItem('service', null)
+  sessionStorage.setItem('user_service', null)
 
   document.querySelectorAll('.js-pushdata-service').forEach((button) => {
     button.addEventListener('click', (event) => {
       value = event.target.textContent
-      sessionStorage.setItem('service', value)
+      sessionStorage.setItem('user_service', value)
     })
   })
 
@@ -66,7 +66,12 @@ function checkSessionStorage() {
 
 function pushData() {
   const data = {
-    
+    user_name: sessionStorage.getItem('user_name'),
+    user_email: sessionStorage.getItem('user_email'),
+    user_tel: sessionStorage.getItem("user_tel"),
+    user_datestring: sessionStorage.getItem("user_datestring"),
+    user_hour: sessionStorage.getItem('user_hour'),
+    user_service: sessionStorage.getItem('user_service')
   }
 
   fetch("https://munk-k.onrender.com", {
