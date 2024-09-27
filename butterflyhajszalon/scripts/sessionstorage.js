@@ -64,6 +64,13 @@ function checkSessionStorage() {
 }
 
 function pushData() {
-  fetch
+  fetch("https://butterflyhajszalon2.onrender.com/")
+    .then(response => {
+      if (!response.ok) {
+        throw new Error("ERROR")
+      }
+      const valasz = response.json()
+      console.log(valasz)
+    })
 }
 
