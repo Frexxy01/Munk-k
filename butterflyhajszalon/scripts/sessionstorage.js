@@ -65,7 +65,17 @@ function checkSessionStorage() {
 }
 
 function pushData() {
-  fetch("https://butterflyhajszalon2.onrender.com/")
+  const data = {
+    
+  }
+
+  fetch("https://munk-k.onrender.com", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json"
+    }, 
+    body: JSON.stringify(data)
+  })
     .then(response => {
       if (!response.ok) {
         throw new Error("ERROR")

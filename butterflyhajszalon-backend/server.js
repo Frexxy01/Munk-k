@@ -12,7 +12,7 @@ const PORT = process.env.PORT || 5001;
 const server = http.createServer((req, res) => {
   //  CORS HEADERS
   res.setHeader("Access-Control-Allow-Origin", "*");
-  res.setHeader("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE");
+  res.setHeader("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS");
   res.setHeader("Access-Control-Allow-Headers", "Content-Type");
 
   switch(req.method) {
