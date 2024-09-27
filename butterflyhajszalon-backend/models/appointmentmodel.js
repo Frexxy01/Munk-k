@@ -3,9 +3,7 @@ const {v4: uuidv4} = require('uuid')
 
 const appointmentSchema = mongoose.Schema({
   foglalas_id: {
-    type: String,
-    default: uuidv4,
-    unique: true
+    type: String
   },
   user_name: {
     type: String
@@ -27,6 +25,7 @@ const appointmentSchema = mongoose.Schema({
   }
 }, {
   timestamps: true,
-}
+},
+{ versionKey: false }
 )
 module.exports = mongoose.model("Appointment", appointmentSchema)
