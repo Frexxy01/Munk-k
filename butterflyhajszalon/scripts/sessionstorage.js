@@ -25,9 +25,34 @@ document.addEventListener('DOMContentLoaded', () => {
   })
 
   document.querySelector('.js-finalize-appointment').addEventListener('click', () => {
-
+    const name = document.querySelector(".js-nameinput")
+    const telephone = document.querySelector(".js-telinput")
+    const email = document.querySelector(".js-emailinput")
     
+    sessionStorage.setItem('user_name', name.value)
+    sessionStorage.setItem('user_tel', telephone.value)
+    sessionStorage.setItem('user_email', email.value)
 
-    console.log(sessionStorage)
+    checkSessionStorage()
+    
   })
 })
+
+function checkSessionStorage() {
+  let allFieldsFilled = true;
+  for (let i = 0; i < sessionStorage.length; i++) {
+    let key = sessionStorage.key(i)
+    let value = sessionStorage.getItem(key)
+    if (value) {
+      continue;
+    }
+    else {
+      alert("Minden mező kitöltése kötelező");
+      allFieldsFilled = false;
+      break;
+    }
+  } 
+  if (allFieldsFilled) {
+    alert("Siker!")
+  }
+}
