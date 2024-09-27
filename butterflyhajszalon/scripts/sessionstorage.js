@@ -69,8 +69,13 @@ function pushData() {
       if (!response.ok) {
         throw new Error("ERROR")
       }
-      const valasz = response.json()
+      return response.json()
+    })
+    .then(valasz => {
       console.log(valasz)
+    })
+    .catch(error => {
+      console.error("problem", error)
     })
 }
 

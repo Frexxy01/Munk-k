@@ -12,12 +12,20 @@ const server = http.createServer((req, res) => {
   switch(req.method) {
     case "GET":
       getReq(req, res)
+      break;
     case "PUT":
       putReq(req, res)
+      break;
     case "POST":
       postReq(req, res)
+      break;
     case "DELETE":
       deleteReq(req, res)
+      break;
+    default:
+      res.statusCode = 405;
+      res.setHeader("Content-Type", "application/json")
+      res.end(JSON.stringify({error: "Method not allowed"}))
   }
 })
 server.listen(PORT, () => {
