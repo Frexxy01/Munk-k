@@ -1,0 +1,38 @@
+.h1-div, .success-details, .img-div, .th-div {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: fit-content;
+}
+.h1-div {
+  font-size: 32px;
+}
+.success-details {
+  text-align: center;
+  font-size: 20px;
+}
+img {
+  border-radius: 200px;
+}
+.th-div {
+  margin-top: 100px;
+  font-size: 32px;
+  padding: 0px 100px; 
+  background-color: grey;
+  color: white;
+}
+.appointment-detail-holder {
+  display: grid;
+  max-width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+  grid-template-columns: 1fr 1fr;
+  margin-bottom: 100px;
+  
+}
+.appointment-detail {
+  text-align: center;
+  font-size: 20px;
+  background-color: rgb(219, 219, 219);
+  padding: 10px;
+  font-weight: bold;
+}

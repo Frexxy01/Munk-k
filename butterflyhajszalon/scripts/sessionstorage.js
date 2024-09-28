@@ -88,7 +88,11 @@ function pushData() {
       return response.json()
     })
     .then(valasz => {
-      console.log(valasz)
+      sessionStorage.clear()
+      sessionStorage.setItem('appointment', JSON.stringify(data))
+      window.location.href = "./success.html"
+     
+      
     })
     .catch(error => {
       console.error("problem", error)
