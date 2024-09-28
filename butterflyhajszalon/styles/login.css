@@ -1,0 +1,20 @@
+.centered {
+  max-width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+}
+.login-title {
+  font-size: 52px;
+}
+.login-grid {
+  padding: 50px;
+  background-color: lemonchiffon;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  font-size: 40px;
+  row-gap: 30px;
+}
+input {
+  padding: 15px 40px;
+  font-size: 30px;
+}
