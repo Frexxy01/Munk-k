@@ -14,8 +14,31 @@ document.addEventListener('DOMContentLoaded', () => {
   })
 
   document.querySelector('.js-dateinput').addEventListener('change', (event) => {
+
+    let futurewarning = document.querySelector('.invisible-future')
+    futurewarning.classList.remove('visible-warning')
+    let pastwarning = document.querySelector('.invisible-past') 
+    pastwarning.classList.remove('visible-warning')
+    document.querySelector('.js-hours-grid').innerHTML = '';
+
     const selectedDate = event.target.value
     sessionStorage.setItem('user_datestring', selectedDate)
+
+    const mennyinap = loadavailableTimes(selectedDate)
+    console.log(mennyinap)
+    if ( mennyinap >= 0 && mennyinap < 15) {
+      loadAvailableHours();
+    }
+    else if ( mennyinap < 0) {
+      console.log("kurvaélet")
+      let warning = document.querySelector('.invisible-past') 
+      warning.classList.add('visible-warning')
+    } 
+    else if ( mennyinap > 14) {
+      let warning = document.querySelector('.invisible-future')
+      warning.classList.add('visible-warning')
+    } 
+    
   })
 
   document.querySelectorAll('.js-pushdata-hour').forEach((button) => {
@@ -99,3 +122,41 @@ function pushData() {
     })
 }
 
+
+function loadavailableTimes(selected) {
+  const today = new Date().toLocaleDateString()
+  
+  const daydifference = differenciInDays(selected, today)
+  return daydifference
+}
+
+function differenciInDays(d1, d2) {
+  const date1 = new Date(d1)
+  const date2 = new Date(d2)
+
+  const diffTime = date1 - date2
+  const diffDays = Math.floor(diffTime / (1000 * 60 * 60 * 24))
+
+  return diffDays
+}
+
+function loadAvailableHours() {
+  let hoursHTML = ''
+  const hours = [
+    "8:00",
+    "9:00",
+    "10:00",
+    '11:00',
+    "12:00",
+    "13:00",
+    "14:00",
+    "15:00",
+    "16:00"
+  ]
+
+  hours.forEach((hour) => {
+    hoursHTML += `<button class="date-option js-movebutton js-pushdata-hour">${hour}</button>`
+  })
+
+  document.querySelector('.js-hours-grid').innerHTML = hoursHTML;
+ }
