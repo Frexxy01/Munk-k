@@ -28,6 +28,17 @@ document.addEventListener('DOMContentLoaded', () => {
     console.log(mennyinap)
     if ( mennyinap >= 0 && mennyinap < 15) {
       loadAvailableHours();
+
+      document.querySelectorAll(".js-movebutton").forEach((button) => {
+        button.addEventListener('click', () => {
+          changeSlide(1);
+        })
+      })
+      document.querySelectorAll('.js-pushdata-hour').forEach((button) => {
+        button.addEventListener('click', (event) => {
+          sessionStorage.setItem('user_hour', event.target.textContent)
+        })
+      })
     }
     else if ( mennyinap < 0) {
       console.log("kurvaélet")
@@ -41,11 +52,7 @@ document.addEventListener('DOMContentLoaded', () => {
     
   })
 
-  document.querySelectorAll('.js-pushdata-hour').forEach((button) => {
-    button.addEventListener('click', (event) => {
-      sessionStorage.setItem('user_hour', event.target.textContent)
-    })
-  })
+
 
   document.querySelector('.js-finalize-appointment').addEventListener('click', () => {
   
