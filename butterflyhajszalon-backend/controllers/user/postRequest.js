@@ -1,5 +1,5 @@
 const { chunk } = require("lodash");
-const Appointment = require("../models/appointmentmodel.js")
+const Appointment = require("../../models/appointmentmodel.js")
 const {v4: uuidv4} = require('uuid')
 
 module.exports = (req, res) => {
