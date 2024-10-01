@@ -3,6 +3,7 @@ const dotenv = require("dotenv")
 const connectDB = require("./config/dbConnection.js")
 const routeAdmin = require("./routes/admin.js")
 const routeUser = require("./routes/user.js")
+const routeAuth = require("./routes/auth.js")
 
 dotenv.config()
 const PORT = process.env.PORT || 5001;
@@ -25,6 +26,12 @@ const server = http.createServer((req, res) => {
     routeUser(req, res)
   } else if (url == '/admin') {
     routeAdmin(req,res)
+  } else if ( url == '/auth') {
+    routeAuth(req, res)
+  } else {
+    res.statusCode = 404
+    res.setHeader('Content-Type', 'application/json')
+    res.end(JSON.stringify({message: 'Not found'}))
   }
 })
 server.listen(PORT, () => {
