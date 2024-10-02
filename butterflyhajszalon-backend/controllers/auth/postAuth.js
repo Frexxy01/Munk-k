@@ -34,6 +34,9 @@ function postAuth(req, res) {
 
       if (isMatch) {
         res.statusCode = 200;
+        res.body(JSON.stringify({
+          message: "authentication successfull!"
+        }))
         res.end(JSON.stringify({message: 'Authentication sucessfull!'}))
       } else {
         res.statusCode = 401;
