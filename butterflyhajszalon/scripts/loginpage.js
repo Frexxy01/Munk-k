@@ -26,9 +26,12 @@ document.addEventListener('DOMContentLoaded', () => {
           throw new Error("ERROR")
         }
         console.log(response)
+        console.log("Bejelentkezés sikeres!")
+        window.location.href = "./admin.html"
       })
       .catch(error => {
         console.error("problem", error)
+        alert("Rossz felhasználónév vagy jelszó")
       })
     }
   })
