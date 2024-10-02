@@ -4,6 +4,9 @@ const connectDB = require("./config/dbConnection.js")
 const routeAdmin = require("./routes/admin.js")
 const routeUser = require("./routes/user.js")
 const routeAuth = require("./routes/auth.js")
+const bcrypt = require("bcrypt")
+const {MongoClient} = require('mongodb')
+const { trusted } = require("mongoose")
 
 dotenv.config()
 const PORT = process.env.PORT || 5001;
@@ -38,3 +41,5 @@ server.listen(PORT, () => {
   console.log(`Server is running of port ${PORT}`)
 })
 connectDB();
+
+

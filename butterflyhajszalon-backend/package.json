@@ -18,10 +18,12 @@
   },
   "homepage": "https://github.com/Frexxy01/butterflyhajszalon#readme",
   "dependencies": {
+    "bcrypt": "^5.1.1",
     "dotenv": "^16.4.5",
+    "jsonwebtoken": "^9.0.2",
+    "lodash": "^4.17.21",
     "mongodb": "^6.9.0",
     "mongoose": "^8.6.4",
-    "lodash": "^4.17.21",
     "nodemon": "^3.1.7",
     "uuid": "^10.0.0"
   }
