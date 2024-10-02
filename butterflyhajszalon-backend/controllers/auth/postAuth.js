@@ -7,7 +7,7 @@ const uri = process.env.CONNECTION_STRING
 const client = new MongoClient(uri)
 
 function postAuth(req, res) {
-  body = '';
+ let body = '';
 
   req.on('data', (chunk) => {
     body += chunk;
