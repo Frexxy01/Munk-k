@@ -4,7 +4,10 @@ const connectDB = require("./config/dbConnection.js")
 const routeAdmin = require("./routes/admin.js")
 const routeUser = require("./routes/user.js")
 const routeAuth = require("./routes/auth.js")
+const routeSingle = require("./routes/single.js")
 const bcrypt = require("bcrypt")
+const { parse } = require("path")
+const url2 = require("url")
 
 
 dotenv.config()
@@ -16,15 +19,20 @@ const server = http.createServer((req, res) => {
   res.setHeader("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS");
   res.setHeader("Access-Control-Allow-Headers", "Content-Type");
 
-  const {url, method} = req
   if (req.method === "OPTIONS") {
     res.writeHead(204);
     res.end()
     return;
   }
-  console.log(url, method)
 
-  if (url == '/') {
+  const {url, method} = req
+  const parsedUrl = url2.parse(req.url, true)
+  const path = parsedUrl.pathname
+  const match = path.match(/^\/admin\/([a-f0-9]{24})$/);
+  if (match) {
+    const id = match[1]; // Extract the ID from the URL
+    routeSingle(req, res);
+  } else if (url == '/') {
     routeUser(req, res)
   } else if (url == '/admin') {
     routeAdmin(req,res)
