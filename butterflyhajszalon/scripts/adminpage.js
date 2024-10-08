@@ -52,6 +52,14 @@ async function displayAppointments() {
         </div>`
   })
   document.querySelector('.js-appointment-holder').innerHTML = appointmentHTML
+
+  document.querySelector('.remove-appointment-button').addEventListener('click', async (event) => {
+    console.log("Starting deleting...")
+    const id = event.target.dataset.id
+    await deleteSingleAppointment(id)
+    displayAppointments();
+
+  })
 }
 
 async function deleteAllAppointment() {
@@ -99,11 +107,6 @@ document.addEventListener('DOMContentLoaded', () => {
   })
   document.querySelector('.js-admin-delete-button').addEventListener('click', () => {
     deleteAllAppointment()
-  })
-  document.querySelector('.remove-appointment-button').addEventListener('click', () => {
-    console.log("Starting deleting...")
-    const id = this.dataset._id
-    deleteSingleAppointment(id)
   })
 })
 
