@@ -25,7 +25,7 @@ async function displayAppointments() {
   console.log("Communication succesfull!")
   appointments.forEach((appointment) => {
     appointmentHTML += `
-    <div class="admin-button-and-element-holder">
+    <div class="admin-button-and-element-holder" data-appointment-id=${appointment.foglalas_id}>
           <div class="admin-appointment-element">
             <div>
               <div class="">Azonosító</div>
@@ -52,12 +52,32 @@ async function displayAppointments() {
   document.querySelector('.js-appointment-holder').innerHTML = appointmentHTML
 }
 
+async function deleteAllAppointment() {
+  const response = await fetch('https://munk-k.onrender.com/admin', {
+    method: 'DELETE',
+    headers: {
+      "Content-Type": "application/json"
+    }
+  })
+  if (!response.ok) {
+    console.log('Failed to delete requests!')
+  }
+  try {
+    const dataStream = await response.json()
+    alert(dataStream.message)
+  } catch(err) {
+    console.error(err)
+  }
+}
 
 document.addEventListener('DOMContentLoaded', () => {
 
   document.querySelector('.js-admin-get-button').addEventListener('click', ()=> {
     console.log("button clicked")
     displayAppointments()
+  })
+  document.querySelector('.js-admin-delete-button').addEventListener('click', () => {
+    deleteAllAppointment()
   })
 })
 
