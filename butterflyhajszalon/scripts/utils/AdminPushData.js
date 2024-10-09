@@ -1,36 +1,8 @@
+import { displayAppointments } from "../adminpage.js"
+
 document.addEventListener('DOMContentLoaded', () => {
-  sessionStorage.setItem('user_name', null);
-  sessionStorage.setItem('user_email', null);
-  sessionStorage.setItem('user_tel', null);
-  sessionStorage.setItem('user_datestring', null);
-  sessionStorage.setItem('user_hour', null)
-  sessionStorage.setItem('user_service', null)
 
-  document.querySelectorAll('.js-pushdata-service').forEach((button) => {
-    button.addEventListener('click', (event) => {
-      value = event.target.textContent
-      sessionStorage.setItem('user_service', value)
-    })
-  })
   dateSelectorLogic()
-
-  document.querySelector('.js-finalize-appointment').addEventListener('click', () => {
-  
-    const name = document.querySelector(".js-nameinput")
-    const telephone = document.querySelector(".js-telinput")
-    const email = document.querySelector(".js-emailinput")
-    
-    sessionStorage.setItem('user_name', name.value)
-    sessionStorage.setItem('user_tel', telephone.value)
-    sessionStorage.setItem('user_email', email.value)
-
-    const isStorageValid = checkSessionStorage()
-    
-    if (isStorageValid) {
-      console.log("Starting request...")
-      pushData()
-    }
-  })
 })
 
 export function dateSelectorLogic() {
@@ -51,13 +23,20 @@ export function dateSelectorLogic() {
       loadAvailableHours();
 
       document.querySelectorAll(".js-movebutton").forEach((button) => {
-        button.addEventListener('click', () => {
-          changeSlide(1);         
+        button.addEventListener('click', (event) => {
+          sessionStorage.setItem('user_name', 'ADMINISZTRÁTOR');
+          sessionStorage.setItem('user_email', 'ADMINISZTRÁTOR');
+          sessionStorage.setItem('user_tel', 'ADMINISZTRÁTOR');
+          sessionStorage.setItem('user_service', 'ADMINISZTRÁTOR')
+          sessionStorage.setItem('user_datestring', document.querySelector('.js-dateinput').value)
+
+          sessionStorage.setItem('user_hour', event.target.textContent)
+          pushData()
         })
       })
       document.querySelectorAll('.js-pushdata-hour').forEach((button) => {
         button.addEventListener('click', (event) => {
-          sessionStorage.setItem('user_hour', event.target.textContent)
+          
         })
       })
     }
@@ -120,9 +99,8 @@ export function pushData() {
     })
     .then(valasz => {
       sessionStorage.clear()
-      sessionStorage.setItem('appointment', JSON.stringify(data))
-      window.location.href = "./success.html"
-       
+      alert('Sikeres adminisztrátori foglalás!')
+      displayAppointments()
     })
     .catch(error => {
       console.error("problem", error)

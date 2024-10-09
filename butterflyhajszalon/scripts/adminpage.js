@@ -1,3 +1,6 @@
+import {pushData, loadavailableTimes, loadAvailableHours, differenciInDays, dateSelectorLogic} from "../scripts/utils/AdminPushData.js"
+
+
 async function loadAppointmentsFromDb() {
   const response = await fetch('https://munk-k.onrender.com/admin', {
     method: 'GET',
@@ -17,7 +20,7 @@ async function loadAppointmentsFromDb() {
   }
   
 }
-async function displayAppointments() {
+export async function displayAppointments() {
   let appointmentHTML = ''
   console.log("hex")
   console.log("Staring communication...")
@@ -61,7 +64,6 @@ async function displayAppointments() {
 
   })
 }
-
 async function deleteAllAppointment() {
   const response = await fetch('https://munk-k.onrender.com/admin', {
     method: 'DELETE',
@@ -79,7 +81,6 @@ async function deleteAllAppointment() {
     console.error(err)
   }
 }
-
 async function deleteSingleAppointment(id) {
   const response = await fetch(`https://munk-k.onrender.com/admin/${id}`, {
     method: 'DELETE',
@@ -99,14 +100,20 @@ async function deleteSingleAppointment(id) {
 }
 
 
-document.addEventListener('DOMContentLoaded', () => {
 
+document.addEventListener('DOMContentLoaded', () => {
   document.querySelector('.js-admin-get-button').addEventListener('click', ()=> {
     console.log("button clicked")
     displayAppointments()
   })
-  document.querySelector('.js-admin-delete-button').addEventListener('click', () => {
-    deleteAllAppointment()
+  document.querySelector('.js-admin-delete-button').addEventListener('click', async () => {
+    await deleteAllAppointment()
+    displayAppointments()
+  })
+
+  document.querySelector('.js-dateinput').addEventListener('change',  async () => {
+    dateSelectorLogic()
+    
   })
 })
 

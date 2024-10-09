@@ -7,7 +7,7 @@
     <link href="./styles/bookAppoinment.css" rel="stylesheet">
 
     <!--Scriptek Kezdete-->
-    <script src="./scripts/adminpage.js"></script>
+    <script type="module" src="./scripts/adminpage.js"></script>
     <!--Sriptek Vége-->
   </head>
   <body>
@@ -22,12 +22,16 @@
         <button class="button-primary js-admin-delete-button">
           Foglalások Törlése
         </button>
-        <button class="button-primary">
-          Vissza a főoldalra
-        </button>
-        <button class="button-primary">
-          Kijelentkezés
-        </button>
+        <a href="./index.html">
+          <button class="button-primary strech">
+            Vissza a főoldalra
+          </button>
+        </a>
+        <a href="./login.html">
+          <button class="button-primary">
+            Kijelentkezés
+          </button>
+        </a>
       </div>
 
       <div class="Welcome-back! centered">
