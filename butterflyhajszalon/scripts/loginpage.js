@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
-  document.querySelector('.js-loginbutton').addEventListener('click', () => {
-  
-     
+  document.querySelector('.js-loginbutton').addEventListener('click', handleLogin)})
+
+async function handleLogin() {
     const username = document.querySelector('.js-username-holder').value
     const password = document.querySelector('.js-password-holder').value 
 
@@ -9,8 +9,6 @@ document.addEventListener('DOMContentLoaded', () => {
       alert("Mezők kitöltése kötelező")
     } else {
       console.log(username, password)
-
-
       fetch('https://munk-k.onrender.com/auth', {
         method: 'POST',
         headers: {
@@ -25,14 +23,16 @@ document.addEventListener('DOMContentLoaded', () => {
         if (!response.ok) {
           throw new Error("ERROR")
         }
-        console.log(response)
+        return response.json();
+      })
+      .then((data) => {
+        console.log(data)
         console.log("Bejelentkezés sikeres!")
-        window.location.href = "./admin.html"
+        localStorage.setItem('token', data.token)
       })
       .catch(error => {
         console.error("problem", error)
         alert("Rossz felhasználónév vagy jelszó")
       })
     }
-  })
-})
+  }

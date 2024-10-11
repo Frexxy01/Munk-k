@@ -39,7 +39,7 @@ function postAuth(req, res) {
         res.setHeader('Content-Type', 'application/json')
         res.end(JSON.stringify(
           {
-            message: 'Authentication sucessfull!',
+            message: 'Authentication sucessfull! Generating tokens...',
             token: jwt.sign({username}, secretkey, {expiresIn: '1h'})
           }
       ))
