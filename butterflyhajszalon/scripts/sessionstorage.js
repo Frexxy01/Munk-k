@@ -47,19 +47,8 @@ function dateSelectorLogic() {
 
     const mennyinap = loadavailableTimes(selectedDate)
     console.log(mennyinap)
-    if ( mennyinap >= 0 && mennyinap < 15) {
-      loadAvailableHours(event);
-
-      document.querySelectorAll(".js-movebutton").forEach((button) => {
-        button.addEventListener('click', () => {
-          changeSlide(1);         
-        })
-      })
-      document.querySelectorAll('.js-pushdata-hour').forEach((button) => {
-        button.addEventListener('click', (event) => {
-          sessionStorage.setItem('user_hour', event.target.textContent)
-        })
-      })
+    if ( mennyinap >= 0 && mennyinap < 15) { 
+      loadAvailableHoursWithWarnings()
     }
     else if ( mennyinap < 0) {
       console.log("kurvaélet")
@@ -147,9 +136,9 @@ function differenciInDays(d1, d2) {
   return diffDays
 }
 
-async function loadAvailableHours(event) {
+async function loadAvailableHours() {
   let hoursHTML = ''
-  const hours = [
+  let hours = [
     "8:00",
     "9:00",
     "10:00",
@@ -160,22 +149,46 @@ async function loadAvailableHours(event) {
     "15:00",
     "16:00"
   ]
-  console.log(event)
-  const request = fetch('https://munk-k.onrender.com', {
+  const datestring = document.querySelector('.js-dateinput').value
+  console.log(datestring)
+  const request = await fetch('https://munk-k.onrender.com/client', {
     method: "POST",
     headers: {
       "Content-Type": "application/json"
     },
-    body: {
-
-    }
+    body: JSON.stringify({
+      "datestring": datestring
+    })
   })
-
-
+  if (!request.ok) {
+    throw new Error("Error fetching hours!")
+  }
+  const lockedHours = await(request.json())
+  hours = hours.filter(hour => !lockedHours.includes(hour))
 
   hours.forEach((hour) => {
     hoursHTML += `<button class="date-option js-movebutton js-pushdata-hour">${hour}</button>`
   })
 
   document.querySelector('.js-hours-grid').innerHTML = hoursHTML;
+
+  document.querySelectorAll(".js-movebutton").forEach((button) => {
+    button.addEventListener('click', () => {
+      changeSlide(1);         
+    })
+  })
+  document.querySelectorAll('.js-pushdata-hour').forEach((button) => {
+    button.addEventListener('click', (event) => {
+      sessionStorage.setItem('user_hour', event.target.textContent)
+    })
+  })
+  
   }
+
+async function loadAvailableHoursWithWarnings() {
+    let warning = document.querySelector('.invisible-loading')
+    warning.classList.add('visible-warning')
+    await loadAvailableHours();
+    warning.classList.remove('visible-warning')
+  }
+  

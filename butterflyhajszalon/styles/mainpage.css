@@ -134,7 +134,7 @@ a {
   cursor: pointer;
 }
 
-.invisible, .invisible-past, .invisible-future {
+.invisible, .invisible-past, .invisible-future, .invisible-loading {
   display: none;
 }
 .visible-warning {
