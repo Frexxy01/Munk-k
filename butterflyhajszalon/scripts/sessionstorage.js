@@ -27,7 +27,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const isStorageValid = checkSessionStorage()
     
     if (isStorageValid) {
-      console.log("Starting request...")
       pushData()
     }
   })
@@ -46,12 +45,10 @@ function dateSelectorLogic() {
     sessionStorage.setItem('user_datestring', selectedDate)
 
     const mennyinap = loadavailableTimes(selectedDate)
-    console.log(mennyinap)
     if ( mennyinap >= 0 && mennyinap < 15) { 
       loadAvailableHoursWithWarnings()
     }
     else if ( mennyinap < 0) {
-      console.log("kurvaélet")
       let warning = document.querySelector('.invisible-past') 
       warning.classList.add('visible-warning')
     } 
@@ -150,7 +147,6 @@ async function loadAvailableHours() {
     "16:00"
   ]
   const datestring = document.querySelector('.js-dateinput').value
-  console.log(datestring)
   const request = await fetch('https://munk-k.onrender.com/client', {
     method: "POST",
     headers: {

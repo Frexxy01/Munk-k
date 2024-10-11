@@ -13,7 +13,6 @@ async function loadAppointmentsFromDb() {
   }
   try {
     const data = await response.json()
-    console.log(data)
     return data
   } catch(error) {
     console.error(error)
@@ -22,11 +21,8 @@ async function loadAppointmentsFromDb() {
 }
 export async function displayAppointments() {
   let appointmentHTML = ''
-  console.log("hex")
-  console.log("Staring communication...")
+  
   const appointments = await loadAppointmentsFromDb() 
-  console.log("Communication succesfull!")
-  console.log(appointments)
   appointments.forEach((appointment) => {
     appointmentHTML += `
     <div class="admin-button-and-element-holder">
@@ -57,7 +53,6 @@ export async function displayAppointments() {
   document.querySelector('.js-appointment-holder').innerHTML = appointmentHTML
 
   document.querySelector('.remove-appointment-button').addEventListener('click', async (event) => {
-    console.log("Starting deleting...")
     const id = event.target.dataset.id
     await deleteSingleAppointment(id)
     displayAppointments();
@@ -135,7 +130,6 @@ document.addEventListener('DOMContentLoaded', async () => {
 
 
   document.querySelector('.js-admin-get-button').addEventListener('click', ()=> {
-    console.log("button clicked")
     displayAppointments()
   })
   document.querySelector('.js-admin-delete-button').addEventListener('click', async () => {
@@ -146,7 +140,6 @@ document.addEventListener('DOMContentLoaded', async () => {
   document.querySelector('.js-dateinput').addEventListener('change',  () => {
     
     dateSelectorLogic()
-    console.log(document.querySelector('.js-hours-grid'))
   })
   document.querySelector('.js-logout-button').addEventListener('click', () => {
     localStorage.removeItem('token')

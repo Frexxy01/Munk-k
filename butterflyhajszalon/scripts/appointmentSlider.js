@@ -18,37 +18,31 @@ document.addEventListener("DOMContentLoaded", () => {
   document.querySelector(".js-nameinput").addEventListener('keydown', (event) => {
     const namePattern = /^[A-Za-z]{3,}\s[A-Za-z]{3,}$/
     if (namePattern.test(event.target.value)) {
-      console.log(true)
       const nameformat = document.querySelector('.invisible-nameformat')
       nameformat.classList.remove('visible-warning')
     } else {
       const nameformat = document.querySelector('.invisible-nameformat')
       nameformat.classList.add('visible-warning')
-      console.log(false)
     }
   })
   document.querySelector(".js-telinput").addEventListener('keydown', (event) => {
     const phonePattern = /^06\s?(\d\s?){7,13}$/;
     if (phonePattern.test(event.target.value)) {
-      console.log(true)
       const nameformat = document.querySelector('.invisible-telformat')
       nameformat.classList.remove('visible-warning')
     } else {
       const nameformat = document.querySelector('.invisible-telformat')
       nameformat.classList.add('visible-warning')
-      console.log(false)
     }
   })
   document.querySelector(".js-emailinput").addEventListener('keydown', (event) => {
     const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{1,}$/;
     if (emailPattern.test(event.target.value)) {
-      console.log(true)
       const nameformat = document.querySelector('.invisible-emailformat')
       nameformat.classList.remove('visible-warning')
     } else {
       const nameformat = document.querySelector('.invisible-emailformat')
       nameformat.classList.add('visible-warning')
-      console.log(false)
     }
   })
 

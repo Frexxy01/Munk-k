@@ -8,7 +8,6 @@ async function handleLogin() {
     if (!username || !password) {
       alert("Mezők kitöltése kötelező")
     } else {
-      console.log(username, password)
       fetch('https://munk-k.onrender.com/auth', {
         method: 'POST',
         headers: {
@@ -26,8 +25,6 @@ async function handleLogin() {
         return response.json();
       })
       .then((data) => {
-        console.log(data)
-        console.log("Bejelentkezés sikeres!")
         localStorage.setItem('token', data.token)
         window.location.href="admin.html"
       })

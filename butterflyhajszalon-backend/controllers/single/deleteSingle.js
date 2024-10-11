@@ -12,14 +12,10 @@ async function deleteById(req, res) {
     const match = path.match(/^\/admin\/([a-f0-9]{24})$/);
     const id = match[1]; 
     
-    console.log(" azonosito", id)
     await client.connect();
     const database = client.db('test');
     const collection = database.collection('appointments');
     const deleteStatus = await collection.deleteOne({_id : new ObjectId(id)});
-
-    console.log(deleteStatus)
-
 
     if (deleteStatus.deletedCount === 1) {
       res.statusCode = 200;

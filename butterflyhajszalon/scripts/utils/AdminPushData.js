@@ -13,7 +13,6 @@ export function dateSelectorLogic() {
     sessionStorage.setItem('user_datestring', selectedDate)
 
     const mennyinap = loadavailableTimes(selectedDate)
-    console.log(mennyinap)
     if ( mennyinap >= 0 && mennyinap < 15) {
       loadAvailableHours();
       
@@ -36,7 +35,6 @@ export function dateSelectorLogic() {
       })
     }
     else if ( mennyinap < 0) {
-      console.log("kurvaélet")
       let warning = document.querySelector('.invisible-past') 
       warning.classList.add('visible-warning')
     } 
