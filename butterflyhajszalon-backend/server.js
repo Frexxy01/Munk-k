@@ -5,6 +5,7 @@ const routeAdmin = require("./routes/admin.js")
 const routeUser = require("./routes/user.js")
 const routeAuth = require("./routes/auth.js")
 const routeSingle = require("./routes/single.js")
+const routeClient = require("./routes/client.js")
 const bcrypt = require("bcrypt")
 const { parse } = require("path")
 const url2 = require("url")
@@ -38,7 +39,9 @@ const server = http.createServer((req, res) => {
     routeAdmin(req,res)
   } else if ( url == '/auth') {
     routeAuth(req, res)
-  } else {
+  } else if (url == '/client') {
+    routeClient(req,res)
+  }  else {
     res.statusCode = 404
     res.setHeader('Content-Type', 'application/json')
     res.end(JSON.stringify({message: 'Not found'}))

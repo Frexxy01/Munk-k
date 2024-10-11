@@ -33,7 +33,7 @@ document.addEventListener('DOMContentLoaded', () => {
   })
 })
 
-export function dateSelectorLogic() {
+function dateSelectorLogic() {
   document.querySelector('.js-dateinput').addEventListener('change', (event) => {
 
     let futurewarning = document.querySelector('.invisible-future')
@@ -48,7 +48,7 @@ export function dateSelectorLogic() {
     const mennyinap = loadavailableTimes(selectedDate)
     console.log(mennyinap)
     if ( mennyinap >= 0 && mennyinap < 15) {
-      loadAvailableHours();
+      loadAvailableHours(event);
 
       document.querySelectorAll(".js-movebutton").forEach((button) => {
         button.addEventListener('click', () => {
@@ -74,7 +74,7 @@ export function dateSelectorLogic() {
 }
 
 
-export function checkSessionStorage() {
+function checkSessionStorage() {
   let allFieldsFilled = true;
   for (let i = 0; i < sessionStorage.length; i++) {
     let key = sessionStorage.key(i)
@@ -95,7 +95,7 @@ export function checkSessionStorage() {
   }
 }
 
-export function pushData() {
+function pushData() {
   const data = {
     user_name: sessionStorage.getItem('user_name'),
     user_email: sessionStorage.getItem('user_email'),
@@ -130,14 +130,14 @@ export function pushData() {
 }
 
 
-export function loadavailableTimes(selected) {
+function loadavailableTimes(selected) {
   const today = new Date().toLocaleDateString()
   
   const daydifference = differenciInDays(selected, today)
   return daydifference
 }
 
-export function differenciInDays(d1, d2) {
+function differenciInDays(d1, d2) {
   const date1 = new Date(d1)
   const date2 = new Date(d2)
 
@@ -147,7 +147,7 @@ export function differenciInDays(d1, d2) {
   return diffDays
 }
 
-export function loadAvailableHours() {
+async function loadAvailableHours(event) {
   let hoursHTML = ''
   const hours = [
     "8:00",
@@ -160,6 +160,18 @@ export function loadAvailableHours() {
     "15:00",
     "16:00"
   ]
+  console.log(event)
+  const request = fetch('https://munk-k.onrender.com', {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: {
+
+    }
+  })
+
+
 
   hours.forEach((hour) => {
     hoursHTML += `<button class="date-option js-movebutton js-pushdata-hour">${hour}</button>`
