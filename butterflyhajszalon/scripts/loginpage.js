@@ -29,6 +29,7 @@ async function handleLogin() {
         console.log(data)
         console.log("Bejelentkezés sikeres!")
         localStorage.setItem('token', data.token)
+        window.location.href="admin.html"
       })
       .catch(error => {
         console.error("problem", error)

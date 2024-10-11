@@ -99,9 +99,43 @@ async function deleteSingleAppointment(id) {
   }
 }
 
+function validateToken() {
+  const token = localStorage.getItem('token')
+  if (!token) {
+    alert("Hozzáférés elutasítva, kérlek jelentkezz be.")
+    window.location.href ="login.html" 
+  }
+
+  fetch("https://munk-k.onrender.com/auth", {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+      "Authorization": `Bearer ${token}`
+    }
+  })
+  .then((response) => {
+    if (response.ok) {
+      return response.json()
+    } else {
+      localStorage.removeItem('token')
+      alert("Hitelesítési token lejárt vagy nem megfelelő, kérlek jelentkezz be újra.")
+      window.location.href = "login.html"
+    }
+  })
+  .then((data) => {
+    console.log(data.payload)
+  })
+  .catch(error => {
+    alert("Hiba történt, kérlek jelentkezz be újra.")
+  })
+}
 
 
-document.addEventListener('DOMContentLoaded', () => {
+
+document.addEventListener('DOMContentLoaded', async () => {
+  await validateToken()
+
+
   document.querySelector('.js-admin-get-button').addEventListener('click', ()=> {
     console.log("button clicked")
     displayAppointments()
