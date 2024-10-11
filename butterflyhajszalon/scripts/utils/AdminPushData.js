@@ -16,7 +16,7 @@ export function dateSelectorLogic() {
     console.log(mennyinap)
     if ( mennyinap >= 0 && mennyinap < 15) {
       loadAvailableHours();
-
+      
       document.querySelectorAll(".js-movebutton").forEach((button) => {
         button.addEventListener('click', (event) => {
           sessionStorage.setItem('user_name', 'ADMINISZTRÁTOR');

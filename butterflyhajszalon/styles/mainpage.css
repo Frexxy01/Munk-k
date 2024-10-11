@@ -134,7 +134,7 @@ a {
   cursor: pointer;
 }
 
-.invisible, .invisible-past, .invisible-future, .invisible-loading {
+.invisible, .invisible-past, .invisible-future, .invisible-loading, .invisible-nameformat, .invisible-telformat, .invisible-emailformat{
   display: none;
 }
 .visible-warning {

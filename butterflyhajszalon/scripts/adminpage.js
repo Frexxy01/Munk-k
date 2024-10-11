@@ -143,8 +143,10 @@ document.addEventListener('DOMContentLoaded', async () => {
     displayAppointments()
   })
 
-  document.querySelector('.js-dateinput').addEventListener('change',  async () => {
+  document.querySelector('.js-dateinput').addEventListener('change',  () => {
+    
     dateSelectorLogic()
+    console.log(document.querySelector('.js-hours-grid'))
   })
   document.querySelector('.js-logout-button').addEventListener('click', () => {
     localStorage.removeItem('token')
