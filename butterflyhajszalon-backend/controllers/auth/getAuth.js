@@ -20,11 +20,10 @@ const adminHTML =
               Vissza a főoldalra
             </button>
           </a>
-          <a href="./login.html">
-            <button class="button-primary">
-              Kijelentkezés
-            </button>
-          </a>
+          <button class="button-primary js-logout-button">
+            Kijelentkezés
+          </button>
+          
         </div>
   
         <div class="Welcome-back! centered">

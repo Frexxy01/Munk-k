@@ -1,10 +1,5 @@
 import { displayAppointments } from "../adminpage.js"
 
-document.addEventListener('DOMContentLoaded', () => {
-
-  dateSelectorLogic()
-})
-
 export function dateSelectorLogic() {
   document.querySelector('.js-dateinput').addEventListener('change', (event) => {
 

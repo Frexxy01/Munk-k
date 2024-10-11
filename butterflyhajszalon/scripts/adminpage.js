@@ -99,35 +99,33 @@ async function deleteSingleAppointment(id) {
   }
 }
 
-function validateToken() {
+async function validateToken() {
   const token = localStorage.getItem('token')
   if (!token) {
     alert("Hozzáférés elutasítva, kérlek jelentkezz be.")
     window.location.href ="login.html" 
+    return;
   }
-
-  fetch("https://munk-k.onrender.com/auth", {
+  try {
+    const response = await fetch("https://munk-k.onrender.com/auth", {
     method: "GET",
     headers: {
       "Content-Type": "application/json",
       "Authorization": `Bearer ${token}`
-    }
-  })
-  .then((response) => {
-    if (response.ok) {
-      return response.json()
-    } else {
+      }
+    })
+    if (!response.ok) {
       localStorage.removeItem('token')
       alert("Hitelesítési token lejárt vagy nem megfelelő, kérlek jelentkezz be újra.")
       window.location.href = "login.html"
     }
-  })
-  .then((data) => {
-    console.log(data.payload)
-  })
-  .catch(error => {
-    alert("Hiba történt, kérlek jelentkezz be újra.")
-  })
+    const data = await response.json()
+    const adminElement = document.querySelector(".admin-html")
+    adminElement.innerHTML = data.payload
+  
+  } catch (err) {
+    console.error("Hiba történt, kérlek jelentkezz be újra.", error)
+  }
 }
 
 
@@ -147,7 +145,10 @@ document.addEventListener('DOMContentLoaded', async () => {
 
   document.querySelector('.js-dateinput').addEventListener('change',  async () => {
     dateSelectorLogic()
-    
+  })
+  document.querySelector('.js-logout-button').addEventListener('click', () => {
+    localStorage.removeItem('token')
+    window.location.href = "login.html"
   })
 })
 

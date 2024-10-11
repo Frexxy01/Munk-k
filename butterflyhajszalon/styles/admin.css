@@ -41,4 +41,9 @@ p {
   color: white;
   background-color: red;
   font-weight: bold;
+  cursor: pointer;
+  transition: opacity, 0.15s;
+}
+.remove-appointment-button:hover {
+  opacity: 0.5;
 }
