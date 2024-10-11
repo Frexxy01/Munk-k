@@ -4,7 +4,9 @@ const {MongoClient} = require("mongodb")
 const dotenv = require("dotenv")
 dotenv.config()
 const uri = process.env.CONNECTION_STRING
+const secretkey = process.env.JWT_SECRET_KEY
 const client = new MongoClient(uri)
+const jwt = require("jsonwebtoken")
 
 function postAuth(req, res) {
  let body = '';
@@ -35,7 +37,12 @@ function postAuth(req, res) {
       if (isMatch) {
         res.statusCode = 200;
         res.setHeader('Content-Type', 'application/json')
-        res.end(JSON.stringify({message: 'Authentication sucessfull!'}))
+        res.end(JSON.stringify(
+          {
+            message: 'Authentication sucessfull!',
+            token: jwt.sign({username}, secretkey, {expiresIn: '1h'})
+          }
+      ))
       } else {
         res.statusCode = 401;
         res.setHeader('Content-Type', 'application/json')
