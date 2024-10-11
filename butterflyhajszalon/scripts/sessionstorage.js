@@ -162,7 +162,7 @@ async function loadAvailableHours(event) {
   ]
   console.log(event)
   const request = fetch('https://munk-k.onrender.com', {
-    method: "GET",
+    method: "POST",
     headers: {
       "Content-Type": "application/json"
     },
